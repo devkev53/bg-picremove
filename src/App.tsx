@@ -2,34 +2,24 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 // import './App.css'
 
-import CloudinaryLogo from './components/CloudinaryLogo'
+import CloudinaryLogo from './components/Icons/CloudinaryLogo'
+import StepUpload from './components/StepUpload'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <footer>Realizado con <a href='https://cloudinary' target='_black' rel='noreferrer'><CloudinaryLogo/></a></footer>
+    <div className='max-w-xl m-auto grid grid-cols-1 place-content-center w-full h-screen p-4'>
+      <header className='flex justify-center py-10'>
+        <h1 className='text-3xl font-bold text-blue-900 tracking-tighter'>BG-<span className='text-blue-600'>PicRemove</span></h1>
+      </header>
+
+      <main>
+        <StepUpload />
+      </main>
+
+      <footer className='flex justify-center items-center gap-x2 font-semibold pt-10'>Realizado con
+        <a href='https://cloudinary' target='_black' rel='noreferrer'><CloudinaryLogo props=""/>
+      </a></footer>
     </div>
   )
 }

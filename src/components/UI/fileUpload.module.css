@@ -1,0 +1,73 @@
+.picture {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.picture:hover img {
+  filter: blur(10px);
+}
+
+.loadInformation {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .loading picture::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rbga(255,255,255,.5);
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(15px);
+  transition: all 300ms ease;
+} */
+
+.loading.circularProgress {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.img {
+  transition: all 200ms ease;
+  object-fit: cover;
+  object-position: center;
+}
+.loading.img {
+  filter: blur(10px);
+}
+.imgInfo {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  opacity: 0;
+  z-index: 1;
+  transition: all 300ms ease;
+}
+.imgInfo p {
+  padding: .5rem;
+  color: white;
+  background: rgba(0,0,0,.5);
+  width: max-content;
+  border-radius: .5rem;
+}
+.picture:hover .imgInfo {
+  opacity: 1;
+}
