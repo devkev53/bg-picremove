@@ -1,11 +1,13 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {useDropzone, FileRejection, FileError} from 'react-dropzone'
 import FileUploadProgress from '../UI/FileUploadProgress';
-
+import { SnackbarUtilities } from '../../utilities/snackbar-manager';
+import { MyFileI } from '../../models/image-status.model';
 import { baseStyle, focusStyle } from './styles';
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 
 export interface UploadbleFile {
-  file: File;
+  file: MyFileI;
   errors: FileError[]
 }
 
@@ -17,6 +19,12 @@ const index = () => {
     acceptedFiles.map(file => Object.assign(file, {
       preview: URL.createObjectURL(file)
     }))
+    rejectFiles.map(({file, errors}) => {
+      errors.map(({code, message}) => {
+        console.error(code, message)
+        SnackbarUtilities.error(message)
+      })
+    })
     const accept = acceptedFiles.map((file) => ({file, errors:[]}))
     setFiles(accept)
   },[])
@@ -31,7 +39,7 @@ const index = () => {
     getRootProps,
     getInputProps
   } = useDropzone({
-    maxFiles:1, 
+    maxFiles:1,
     accept:{
       'image/png': ['.png'],
       'image/jpg': ['.jpg'],
@@ -51,9 +59,6 @@ const index = () => {
     isDragActive
   ])
 
-  const rejectionsFiles = fileRejections.map(({file, errors}) => {
-    console.log(errors)
-  })
 
   return (
     <form
@@ -65,16 +70,16 @@ const index = () => {
         ${files.length > 0 && 'pointers-events-none'}`
       }
     >
-
       {files.length > 0
         ? files.map(({file}) => (
           <FileUploadProgress key={file.path} file={file} />
         ))
         : (<>
           <button className="font-bold pointer-events-none bg-blue-600 rounded-full text-white text-xl px-8 py-3">
+            <DriveFolderUploadIcon fontSize="large" className='mr-2' />
             Upload Image
           </button>
-          <strong className='text-lg mt-4 text-gray-500'>or drop a file</strong>
+          <strong className='text-lg text-gray-500'>or drop a file</strong>
         </>)
       }
     </form>

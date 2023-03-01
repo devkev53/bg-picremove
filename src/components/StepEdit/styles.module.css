@@ -1,0 +1,121 @@
+.imagesContainer{
+  position: relative;
+}
+.resetImg {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-content: center;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+}
+.resetImg button {
+  width: 30px;
+  height: 30px;
+  background: rgba(0,0,0,.3);
+  border-radius: 100%;
+  transform: all 200ms ease;
+}
+.resetImg button:hover {
+  background: rgba(0,0,0,.5);
+}
+
+.previewMofifyImg{
+  position: absolute;
+  top: 0;
+}
+
+.twoUp div::after {
+  background: yellow !important;
+}
+
+/* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+.skeleton {
+  position: relative;
+}
+/* .skeleton::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: rgba(0,0,0,.2);
+  z-index: -1;
+} */
+
+.skeleton img {
+  filter: blur(5px) grayscale(1);
+  margin: 0 auto;
+}
+/* .skeleton::after {
+  content: '';
+  width: 400%;
+  height: 400%;
+  position: absolute;
+  background: rgba(255,255,255, .2);
+  background: linear-gradient(45deg, rgba(255,255,255,1) 10%, rgb(228, 228, 228) 35%, rgb(211, 211, 211) 50%, rgba(228,228,228,1) 65%, rgba(255,255,255,1) 90%);
+  animation: skeletonAnimated 5s infinite;
+  z-index: -1;
+} */
+.skeleton div p {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  top: calc(50% + 30px);
+  color: rgba(0,0,0,.9);
+  bottom: 50%;
+  font-weight: 700;
+  text-shadow: 1px 1px 10px rgba(255,255,255);
+}
+
+/* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+.containerSpin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  gap: 0.625em;
+  transform: translate(-50%, -50%);
+}
+.containerSpin span {
+  border-radius: 50%;
+  height: 1.5em;
+  width: 1.5em;
+}
+.containerSpin span::before {
+  content: "";
+  display: block;
+  border-radius: inherit;
+  height: inherit;
+  width: inherit;
+  background-color: inherit;
+  animation: ripple 1.8s ease-out infinite;
+  animation-delay: inherit;
+  z-index: -1;
+}
+.containerSpin span:nth-child(1) {
+  background-color: #84cdfa;
+}
+.containerSpin span:nth-child(2) {
+  background-color: #5ad1cd;
+  animation-delay: 0.2s;
+}
+.containerSpin span:nth-child(3) {
+  background-color: #9b59b6;
+  animation-delay: 0.4s;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
