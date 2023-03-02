@@ -1,0 +1,129 @@
+.homeContainer {
+  background: #fff;
+  min-height: 70vh;
+  /* display: grid; */
+}
+.homeMain {
+  /* margin: 0 auto; */
+}
+
+/* -*-*-*-*-*-*-*-*-*-*- ARTICLE ONE -*-*-*-*-*-*-*-*-*-*- */
+.articleOne {
+  max-width: var(--max-whidth);
+  min-height: 70vh;
+  display: grid;
+  grid-template-areas:
+    "logo"
+    "video"
+    "content";
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 1.2rem;
+}
+
+.homeLogo {
+  grid-row: logo;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.homeVideo {
+  grid-area: video;
+  width: 100%;
+}
+
+.homeText {
+  font-size: clamp(var(--text-m), 2.5vw, var(--text-l));
+  display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.homeText h3 {
+  font-size: clamp(var(--text-l), 2.5vw, var(--text-xxl));
+  font-weight: bold;
+  color: rgba(var(--purple-color));
+}
+/* -*-*-*-*-*-*-*-*-*-*- TRY BUTTON -*-*-*-*-*-*-*-*-*-*- */
+.tryBtn {
+  /* border: .1rem solid red; */
+  width: 100%;
+  max-width: 30rem;
+  height: 5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.tryBtn span {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  transform: translateX(8rem);
+  color: rgba(var(--font2-color));
+  font-weight: bold;
+  transition: all .3s ease;
+}
+.tryBtn::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5rem;
+  background: rgba(var(--pink-color));
+  border-radius: 50px;
+  transition: all .3s ease;
+  top: 0;
+}
+.tryBtn:hover::before {
+  width: 100%;
+}
+/* -*-*-*-*-*-*-*-*-*-*- ARTICLE TWO -*-*-*-*-*-*-*-*-*-*- */
+.articleTwo {
+  min-height: 40vh;
+  background: rgba(var(--pink-color));
+  width: 100%;
+}
+
+
+@media (min-width: 768px) {
+  .articleOne {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo     video"
+      "content  video";
+  }
+  .homeLogo {
+    grid-area: logo;
+    justify-content: flex-start;
+  }
+  .homeText {
+    grid-area: content;
+  }
+  .homeVideo {
+    grid-area: video;
+    margin: auto;
+  }
+
+  /* -*-*-*-*-*-*-*-*-*-*- TRY BUTTON -*-*-*-*-*-*-*-*-*-*- */
+  .tryBtn {
+    height: 6rem;
+  }
+  .tryBtn::before {
+    width: 6rem;
+    height: 6rem;
+  }
+  .tryBtn span {
+    transform: translateX(0);
+    color: rgba(var(--font-color));
+  }
+
+
+  .tryBtn:hover::before {
+    width: 100%;
+  }
+  .tryBtn:hover span {
+    transform: translateX(8rem);
+  }
+
+}
