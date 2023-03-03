@@ -3,6 +3,8 @@
   min-height: 70vh;
   /* display: grid; */
 }
+/* -*-*-*-*-*-*-*-*-*-*- ARTICLE ONE -*-*-*-*-*-*-*-*-*-*- */
+
 .homeMain {
   /* margin: 0 auto; */
 }
@@ -20,6 +22,7 @@
   margin: 0 auto;
   padding: 2rem;
   gap: 1.2rem;
+  position: relative;
 }
 
 .homeLogo {
@@ -80,10 +83,52 @@
 }
 /* -*-*-*-*-*-*-*-*-*-*- ARTICLE TWO -*-*-*-*-*-*-*-*-*-*- */
 .articleTwo {
-  min-height: 40vh;
   background: rgba(var(--pink-color));
+  background: linear-gradient(180deg, rgba(var(--purple-color)) 0%, rgba(var(--pink-color))100%);
   width: 100%;
+  position: relative;
 }
+
+
+
+.containerArticle2 {
+  max-width: var(--max-width);
+  display: flex;
+  padding: 2.2rem 2rem;
+  gap: 2.4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* -*-*-*-*-*-*-*-*-*-*- CARDS CONTAINER -*-*-*-*-*-*-*-*-*-*- */
+.cardsContainer {
+  display: grid;
+  gap: 2.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr));
+}
+/* -*-*-*-*-*-*-*-*-*-*- CARD -*-*-*-*-*-*-*-*-*-*- */
+.cardGuide {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  background: rgba(var(--bg-color));
+  padding: 2.4rem;
+  gap: 1.2rem;
+  border-radius: 1.2rem;
+}
+.cardGuide svg {
+  color: rgba(var(--green-color));
+}
+.cardGuide h3 {
+  font-size: clamp(var(--text-m), 2.5vw, var(--text-l));
+  font-weight: bold;
+  color: rgba(var(--green-color));
+}
+.cardGuide p {
+  font-size: clamp(var(--text-s), 2.5vw, var(--text-m));
+}
+
 
 
 @media (min-width: 768px) {
