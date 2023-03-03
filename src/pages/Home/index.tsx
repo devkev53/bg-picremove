@@ -6,6 +6,8 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import DownloadingIcon from '@mui/icons-material/Downloading';
 
+import Example from '../../containers/ExampleHome'
+
 import styles from './styles.module.css'
 
 const index = () => {
@@ -13,9 +15,9 @@ const index = () => {
     <div className={styles.homeContainer}>
       <main className={styles.homeMain}>
         <article className={styles.articleOne}>
-           <picture className={styles.homeLogo}><span>BG-PicRemove</span></picture>
+          <picture className={styles.homeLogo}><span>BG-PicRemove</span></picture>
           <div className={styles.homeText}>
-            <h3>Remove the backgroun with this app</h3>
+            <h3>Remove the backgroun with the best free app</h3>
             <p>Easily remove the background from your images and edit them with this web application, thanks to the artificial intelligence provided by <a href="">cloudinary</a></p>
             <Link href='/upload'>
               <a className={styles.tryBtn}>
@@ -32,11 +34,9 @@ const index = () => {
 
         <article className={styles.articleTwo}>
           <div className={styles.containerArticle2}>
-            <h3>
-              How to use the 
-              <picture>
-                <span>BG-PicRemove</span>
-              </picture>
+            <h3 className={styles.how}>
+              How to use the
+              <span>BG-PicRemove</span>
             </h3>
 
             <div className={styles.cardsContainer}>
@@ -76,6 +76,9 @@ const index = () => {
 
           </div>
         </article>
+
+        <Example />
+
       </main>
     </div>
   );

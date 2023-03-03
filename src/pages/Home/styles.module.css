@@ -11,7 +11,6 @@
 
 /* -*-*-*-*-*-*-*-*-*-*- ARTICLE ONE -*-*-*-*-*-*-*-*-*-*- */
 .articleOne {
-  max-width: var(--max-whidth);
   min-height: 70vh;
   display: grid;
   grid-template-areas:
@@ -39,23 +38,25 @@
 .homeText {
   font-size: clamp(var(--text-m), 2.5vw, var(--text-l));
   display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: center;
 }
 .homeText h3 {
   font-size: clamp(var(--text-l), 2.5vw, var(--text-xxl));
   font-weight: bold;
   color: rgba(var(--purple-color));
+  margin: 0 auto;
 }
 /* -*-*-*-*-*-*-*-*-*-*- TRY BUTTON -*-*-*-*-*-*-*-*-*-*- */
 .tryBtn {
-  /* border: .1rem solid red; */
   width: 100%;
   max-width: 30rem;
   height: 5rem;
   position: relative;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 .tryBtn span {
   position: absolute;
@@ -86,27 +87,41 @@
   background: rgba(var(--pink-color));
   background: linear-gradient(180deg, rgba(var(--purple-color)) 0%, rgba(var(--pink-color))100%);
   width: 100%;
+  padding: 4rem 0;
   position: relative;
 }
 
-
-
 .containerArticle2 {
-  max-width: var(--max-width);
   display: flex;
-  padding: 2.2rem 2rem;
-  gap: 2.4rem;
+  width: 100%;
+  gap: 4.8rem;
+  padding: ;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
 }
 
+.containerArticle2 .how {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: .4rem;
+  font-size: clamp(var(--text-m), 2.5vw, var(--text-xl));
+}
+
+
 /* -*-*-*-*-*-*-*-*-*-*- CARDS CONTAINER -*-*-*-*-*-*-*-*-*-*- */
-.cardsContainer {
+/* .cardsContainer {
   display: grid;
   gap: 2.4rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 25rem), 1fr));
+} */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  justify-content: center;
 }
 /* -*-*-*-*-*-*-*-*-*-*- CARD -*-*-*-*-*-*-*-*-*-*- */
 .cardGuide {
@@ -116,6 +131,7 @@
   padding: 2.4rem;
   gap: 1.2rem;
   border-radius: 1.2rem;
+  max-width: 30rem;
 }
 .cardGuide svg {
   color: rgba(var(--green-color));
@@ -131,6 +147,14 @@
 
 
 
+
+@media (min-width: 600px) {
+  .optionItem:nth-child(4),
+  .optionItem:nth-child(5) {
+    display: block;
+  }
+}
+
 @media (min-width: 768px) {
   .articleOne {
     grid-template-columns: 1fr 1fr;
@@ -144,6 +168,10 @@
   }
   .homeText {
     grid-area: content;
+    text-align: left;
+  }
+  .homeText h3 {
+    margin: 0;
   }
   .homeVideo {
     grid-area: video;
@@ -153,6 +181,7 @@
   /* -*-*-*-*-*-*-*-*-*-*- TRY BUTTON -*-*-*-*-*-*-*-*-*-*- */
   .tryBtn {
     height: 6rem;
+    margin: 0;
   }
   .tryBtn::before {
     width: 6rem;
@@ -170,5 +199,17 @@
   .tryBtn:hover span {
     transform: translateX(8rem);
   }
+
+
+  /* -*-*-*-*-*-*-*-*-*-*- ARTICLE TWO -*-*-*-*-*-*-*-*-*-*- */
+  .articleTwo {
+    padding: 8rem 0;
+  }
+  /* -*-*-*-*-*-*-*-*-*-*- CARDS CONTAINER -*-*-*-*-*-*-*-*-*-*- */
+  /* .cardsContainer {
+    display: grid;
+    gap: 2.4rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr));
+  } */
 
 }
