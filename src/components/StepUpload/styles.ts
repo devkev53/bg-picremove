@@ -3,5 +3,5 @@ export const baseStyle = {
 }
 export const focusStyle = {
   borderColor: '#2196f3',
-  backgroundColor: 'rgba(233,233,233,1)'
+  backgroundColor: 'rgba(200, 182, 255, .2)'
 }

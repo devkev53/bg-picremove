@@ -19,4 +19,4 @@ export const addEeffect = (public_id:string) => {
   return imageWithoutBackground.toURL()
 }
 
-export const resizeImg = public 
+// export const resizeImg = public 

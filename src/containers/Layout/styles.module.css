@@ -1,6 +1,9 @@
 .layoutContainer {
   min-height: 100vh;
   /* background: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .gosth {
   width: 100%;
@@ -14,6 +17,9 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-top: auto;
+  bottom: 0;
+  min-width: 22rem;
 }
 .create {
   display: flex;
@@ -25,6 +31,7 @@
   justify-content: center;
   padding: 1.2rem;
   gap: .8rem;
+  min-width: 22rem;
 }
 .create b {
   color: rgb(63, 44, 63);

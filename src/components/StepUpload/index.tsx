@@ -6,6 +6,8 @@ import { MyFileI } from '../../models/image-status.model';
 import { baseStyle, focusStyle } from './styles';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 
+import styles from './styles.module.css'
+
 export interface UploadbleFile {
   file: MyFileI;
   errors: FileError[]
@@ -65,22 +67,21 @@ const index = () => {
       {...getRootProps({style})}
       action="https://res.cloudinary.com/v1_1/dn83qw1rq/image/upload"
       className={
-        `shadow-2xl border-dashed border-2 border-gray-300 rounded-lg aspect-video
-        w-full flex items-center justify-center flex-col
-        ${files.length > 0 && 'pointers-events-none'}`
+        `${styles.formContainer}`
       }
     >
       {files.length > 0
         ? files.map(({file}) => (
           <FileUploadProgress key={file.path} file={file} />
         ))
-        : (<>
-          <button className="font-bold pointer-events-none bg-blue-600 rounded-full text-white text-xl px-8 py-3">
+        : (<div>
+          {/* <button className="font-bold pointer-events-none bg-blue-600 rounded-full text-white text-xl px-8 py-3"> */}
+          <button className={styles.uploadButton}>
             <DriveFolderUploadIcon fontSize="large" className='mr-2' />
             Upload Image
           </button>
-          <strong className='text-lg text-gray-500'>or drop a file</strong>
-        </>)
+          <strong className={styles.small}>or drop a file</strong>
+        </div>)
       }
     </form>
   );

@@ -6,6 +6,7 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import DownloadingIcon from '@mui/icons-material/Downloading';
 import bgl from '../../assets/bgl-black.png'
+import bglc from '../../assets/bgl.png'
 
 import Example from '../../containers/ExampleHome'
 
@@ -16,7 +17,7 @@ const index = () => {
     <div className={styles.homeContainer}>
       <main className={styles.homeMain}>
         <article className={styles.articleOne}>
-          <picture className={styles.homeLogo}><span>BG-PicRemove</span></picture>
+          <picture className={styles.homeLogo}><img src={bglc} alt="" /></picture>
           <div className={styles.homeText}>
             <h3>Remove the backgroun with the best free app</h3>
             <p>Easily remove the background from your images and edit them with this web application, thanks to the artificial intelligence provided by <a href="">cloudinary</a></p>

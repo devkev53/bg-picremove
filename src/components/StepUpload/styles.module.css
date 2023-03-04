@@ -1,0 +1,44 @@
+.formContainer {
+  background: red;
+  min-height: 30rem;
+  height: 40rem;
+  min-width: 22rem;
+  border-radius: 1.2rem;
+  border: .4rem dashed rgba(var(--pink-color), .6);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+}
+.formContainer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uploadButton {
+  font-size: clamp(var(--text-m), 2.5vw, var(--text-l));
+  font-weight: bold;
+  background: rgba(var(--purple-color));
+  padding: 1.2rem 1.8rem;
+  border-radius: 2.4rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+.uploadButton svg {
+  transform: scale(150%);
+}
+.small {
+  font-size: clamp(var(--text-s), 2.5vw, var(--text-m));
+  color: rgba(var(--pink-color));
+}
+
+@media (min-width: 768px) {
+  .formContainer {
+    height: 60rem;
+    order: 1;
+    border-radius: 2.2rem;
+  }
+}
