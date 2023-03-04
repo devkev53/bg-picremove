@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from "wouter";
 import Menu from "../../components/Menu";
+import bgc from '../../assets/bgc.png'
+import bgl from '../../assets/bgl.png'
 
 import styles from './styles.module.css'
 
@@ -14,10 +16,14 @@ const index = () => {
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
         <Link href="/">
-          <a>
-            <h1>
+          <a className={styles.logo}>
+            <picture>
+              <source srcSet={bgl} media='(min-width: 768px)' />
+              <img src={bgc} alt="BG-PICRREMOVE" />
+            </picture>
+            {/* <h1>
               BG-<span>PicRemove</span>
-            </h1>
+            </h1> */}
           </a>
         </Link>
         <nav className={`${openMenu && styles.open}`} >

@@ -104,10 +104,20 @@
 
 .containerArticle2 .how {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
+  align-items: center;
   gap: .4rem;
   font-size: clamp(var(--text-m), 2.5vw, var(--text-xl));
+}
+.how picture {
+  height: 4rem;
+  width: max-content;
+}
+.how picture img {
+  height: 100%;
+  object-fit: contain;
 }
 
 
@@ -204,6 +214,9 @@
   /* -*-*-*-*-*-*-*-*-*-*- ARTICLE TWO -*-*-*-*-*-*-*-*-*-*- */
   .articleTwo {
     padding: 8rem 0;
+  }
+  .containerArticle2 .how {
+    flex-direction: row;
   }
   /* -*-*-*-*-*-*-*-*-*-*- CARDS CONTAINER -*-*-*-*-*-*-*-*-*-*- */
   /* .cardsContainer {

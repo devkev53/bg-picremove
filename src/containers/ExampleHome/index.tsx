@@ -4,16 +4,16 @@ import styles from  './styles.module.css'
 
 import 'two-up-element'
 
-import kids from '../../assets/niños.jpg'
-import kidsRb from '../../assets/niños-rb.png'
-import shoes from '../../assets/adidas.png'
-import shoesRb from '../../assets/shoesRb.png'
-import animals from '../../assets/shoesRb.png'
-import animalsBr from '../../assets/shoesRb.png'
-import auto from '../../assets/shoesRb.png'
-import autoBr from '../../assets/shoesRb.png'
-import graphics from '../../assets/shoesRb.png'
-import graphicsBr from '../../assets/shoesRb.png'
+import kids from '../../assets/examples/niños.jpg'
+import kidsRb from '../../assets/examples/niños-rb.png'
+import shoes from '../../assets/examples/adidas.png'
+import shoesRb from '../../assets/examples/adidasBg.png'
+import animals from '../../assets/examples/animal.png'
+import animalsBr from '../../assets/examples/animalBg.png'
+import auto from '../../assets/examples/car.png'
+import autoBr from '../../assets/examples/carBg.png'
+import graphics from '../../assets/examples/graphics.png'
+import graphicsBr from '../../assets/examples/graphicsBg.png'
 
 const ListButton = ({text, active, value}:{text:string, active:boolean, value:number}) => {
   const [isActive, setIsActive] = useState(active)

@@ -5,6 +5,7 @@ import FileUploadIcon from '@mui/icons-material/FileUpload';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import DownloadingIcon from '@mui/icons-material/Downloading';
+import bgl from '../../assets/bgl-black.png'
 
 import Example from '../../containers/ExampleHome'
 
@@ -36,7 +37,9 @@ const index = () => {
           <div className={styles.containerArticle2}>
             <h3 className={styles.how}>
               How to use the
-              <span>BG-PicRemove</span>
+              <picture>
+                <img src={bgl} alt="BG-PICREMOVE" />
+              </picture>
             </h3>
 
             <div className={styles.cardsContainer}>

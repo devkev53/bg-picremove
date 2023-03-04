@@ -22,9 +22,21 @@
   margin: 0 auto;
 }
 
-.headerContainer a {
+/* .headerContainer a {
   width: auto;
+} */
+.logo {
+  height: 100%;
 }
+.logo picture {
+  padding: 1.2rem 0;
+  height: 100%;
+}
+.logo picture img {
+  height: 100%;
+}
+
+
 .headerContainer h1 {
   font-size: clamp(var(--text-l), 2.5vw, var(--text-xl));
 }

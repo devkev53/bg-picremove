@@ -1,0 +1,112 @@
+.aboutContainer {
+  padding: 4rem 0;
+}
+.mainContainer {
+  min-height: calc(100vh - 21.2rem);
+  max-width: var(--max-width);
+  display: grid;
+  place-content: center;
+  padding: 0 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 42rem), 1fr));
+  gap: 4.8rem;
+  margin: 0 auto;
+}
+
+.articleOne {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.articleOne h3 {
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-xxl));
+  font-weight: bold;
+  color: rgba(var(--green-color));
+}
+.articleOne picture {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: flex-start;
+  height: var(--text-xl);
+}
+.articleOne picture img {
+  height: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+
+
+
+
+.articleTwo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.articleTwo h3 {
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-xxl));
+  font-weight: bold;
+  color: rgba(var(--purple-color));
+}
+
+.card {
+  max-width: 45rem;
+  border-radius: 1.2rem;
+  background: rgba(var(--pink-color));
+  background: linear-gradient(180deg, rgba(var(--purple-color)) 0%, rgba(var(--pink-color))100%);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: .5rem .5rem 2rem rgba(var(--pink-color),.5);
+}
+
+.card picture {
+  height: 8rem;
+  width: 8rem;
+  padding: 1.2rem;
+  border-radius: 100%;
+  background: #3b3b3b;
+  border: .2rem solid rgba(var(--soft-green-color));
+}
+.card picture img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.card div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.card p {
+  font-size: clamp(var(--text-s), 2.5vw, var(--text-m));
+  font-weight: bold;
+}
+.card small {
+  font-size: clamp(var(--text-s), 2.5vw, var(--text-m));
+}
+
+.card a {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  transition: all .3s ease;
+}
+.card a:hover {
+  opacity: .6;
+}
+
+
+
+@media (min-width: 768px) {
+  .mainContainer {
+    min-height: calc(100vh - 20rem);
+  }
+  .card picture {
+    height: 15rem;
+    width: 15rem;
+  }
+  
+}
