@@ -1,0 +1,116 @@
+.headerContainer {
+  height: 6rem;
+  box-shadow: .1rem .1rem 3rem rgba(0,0,0,.5);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.2rem;
+  background: rgba(var(--bg-color), 1);
+  padding: 0 2.2rem;
+  z-index: 3;
+}
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  height: 100%;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* .headerContainer a {
+  width: auto;
+} */
+.logo {
+  height: 100%;
+}
+.logo picture {
+  padding: 1.2rem 0;
+  height: 100%;
+}
+.logo picture img {
+  height: 100%;
+}
+
+
+.headerContainer h1 {
+  font-size: clamp(var(--text-l), 2.5vw, var(--text-xl));
+}
+.headerContent nav {
+  height: calc(100vh - 6rem);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 6rem;
+  display: flex;
+  justify-content: start;
+  gap: 1.2rem;
+  align-items: center;
+  background: rgba(0,0,0,.8);
+  transform: translateX(-100%);
+  transition: all .3s ease;
+}
+/* -*-*-*-*-*-*-*-*-*-*-*-* NAV MENU OPEN *-*-*-*-*-*-*-*-*-*-*-*- */
+.headerContainer .open {
+  transform: translateX(0);
+}
+
+
+
+/* -*-*-*-*-*-*-*-*-*-*-*-* BURGUER MENU *-*-*-*-*-*-*-*-*-*-*-*- */
+.burguerIcon {
+  height: 4rem;
+  width: 5rem;
+  /* background: red; */
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.burguerIcon span {
+  height: .6rem;
+  width: 100%;
+  border-radius: 1rem;
+  background: rgba(var(--green-color));
+  transition: all .3s ease;
+}
+
+/* -*-*-*-*-*-*-*-*-*-*-*-* BURGUER MENU CLOSE MENU *-*-*-*-*-*-*-*-*-*-*-*- */
+.closeButton.burguerIcon span {
+  background: rgba(var(--soft-green-color));
+}
+.closeButton.burguerIcon .span2 {
+  transform: translateX(200%);
+}
+.closeButton.burguerIcon .span1 {
+  transform: translateY(1.3rem) rotate(45deg);
+}
+.closeButton.burguerIcon .span3 {
+  transform:translateY(-1.3rem) rotate(-45deg);
+}
+
+
+@media (min-width: 480px) {
+  .headerContainer {
+    justify-content: flex-start
+  }
+  .headerContainer nav {
+    height: 100%;
+    width: auto;
+    flex-direction: row;
+    position: relative;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0 ease;
+  }
+
+  /* -*-*-*-*-*-*-*-*-*-*-*-* BURGUER MENU *-*-*-*-*-*-*-*-*-*-*-*- */
+  .burguerIcon {
+    display: none;
+  }
+}

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+:root {
+  --bg-color: 237, 246, 249;
+  --font-color: 18, 18, 18;
+  --font2-color: 246, 246, 246;
+  --green-color: 0, 109, 119;
+  --soft-green-color: 131, 197, 190;
+  --pink-color: 251, 111, 146;
+  --purple-color: 200, 182, 255;
+
+  --text-xxl: 4.2rem;
+  --text-xl: 3.2rem;
+  --text-l: 2.2rem;
+  --text-m: 1.6rem;
+  --text-s: 1rem;
+
+  --max-width: 1280px;
+  --tablet: 481px;
+  --laptop: 769px;
+  --desktop: 1280px;
+
+}
+
+body {
+  font-family: 'Quicksand';
+  background: rgba(var(--bg-color));
+}

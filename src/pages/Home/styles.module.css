@@ -1,0 +1,228 @@
+.homeContainer {
+  background: #fff;
+  min-height: 70vh;
+  /* display: grid; */
+}
+/* -*-*-*-*-*-*-*-*-*-*- ARTICLE ONE -*-*-*-*-*-*-*-*-*-*- */
+
+.homeMain {
+  /* margin: 0 auto; */
+}
+
+/* -*-*-*-*-*-*-*-*-*-*- ARTICLE ONE -*-*-*-*-*-*-*-*-*-*- */
+.articleOne {
+  min-height: 70vh;
+  display: grid;
+  grid-template-areas:
+    "logo"
+    "video"
+    "content";
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.homeLogo {
+  grid-row: logo;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.homeVideo {
+  grid-area: video;
+  width: 100%;
+}
+
+.homeText {
+  font-size: clamp(var(--text-m), 2.5vw, var(--text-l));
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: center;
+}
+.homeText h3 {
+  font-size: clamp(var(--text-l), 2.5vw, var(--text-xxl));
+  font-weight: bold;
+  color: rgba(var(--purple-color));
+  margin: 0 auto;
+}
+/* -*-*-*-*-*-*-*-*-*-*- TRY BUTTON -*-*-*-*-*-*-*-*-*-*- */
+.tryBtn {
+  width: 100%;
+  max-width: 30rem;
+  height: 5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.tryBtn span {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  transform: translateX(8rem);
+  color: rgba(var(--font2-color));
+  font-weight: bold;
+  transition: all .3s ease;
+}
+.tryBtn::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5rem;
+  background: rgba(var(--pink-color));
+  border-radius: 50px;
+  transition: all .3s ease;
+  top: 0;
+}
+.tryBtn:hover::before {
+  width: 100%;
+}
+/* -*-*-*-*-*-*-*-*-*-*- ARTICLE TWO -*-*-*-*-*-*-*-*-*-*- */
+.articleTwo {
+  background: rgba(var(--pink-color));
+  background: linear-gradient(180deg, rgba(var(--purple-color)) 0%, rgba(var(--pink-color))100%);
+  width: 100%;
+  padding: 4rem 0;
+  position: relative;
+}
+
+.containerArticle2 {
+  display: flex;
+  width: 100%;
+  gap: 4.8rem;
+  padding: ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.containerArticle2 .how {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: .4rem;
+  font-size: clamp(var(--text-m), 2.5vw, var(--text-xl));
+}
+.how picture {
+  height: 4rem;
+  width: max-content;
+}
+.how picture img {
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* -*-*-*-*-*-*-*-*-*-*- CARDS CONTAINER -*-*-*-*-*-*-*-*-*-*- */
+/* .cardsContainer {
+  display: grid;
+  gap: 2.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 25rem), 1fr));
+} */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  justify-content: center;
+}
+/* -*-*-*-*-*-*-*-*-*-*- CARD -*-*-*-*-*-*-*-*-*-*- */
+.cardGuide {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  background: rgba(var(--bg-color));
+  padding: 2.4rem;
+  gap: 1.2rem;
+  border-radius: 1.2rem;
+  max-width: 30rem;
+}
+.cardGuide svg {
+  color: rgba(var(--green-color));
+}
+.cardGuide h3 {
+  font-size: clamp(var(--text-m), 2.5vw, var(--text-l));
+  font-weight: bold;
+  color: rgba(var(--green-color));
+}
+.cardGuide p {
+  font-size: clamp(var(--text-s), 2.5vw, var(--text-m));
+}
+
+
+
+
+@media (min-width: 600px) {
+  .optionItem:nth-child(4),
+  .optionItem:nth-child(5) {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .articleOne {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo     video"
+      "content  video";
+  }
+  .homeLogo {
+    grid-area: logo;
+    justify-content: flex-start;
+  }
+  .homeText {
+    grid-area: content;
+    text-align: left;
+  }
+  .homeText h3 {
+    margin: 0;
+  }
+  .homeVideo {
+    grid-area: video;
+    margin: auto;
+  }
+
+  /* -*-*-*-*-*-*-*-*-*-*- TRY BUTTON -*-*-*-*-*-*-*-*-*-*- */
+  .tryBtn {
+    height: 6rem;
+    margin: 0;
+  }
+  .tryBtn::before {
+    width: 6rem;
+    height: 6rem;
+  }
+  .tryBtn span {
+    transform: translateX(0);
+    color: rgba(var(--font-color));
+  }
+
+
+  .tryBtn:hover::before {
+    width: 100%;
+  }
+  .tryBtn:hover span {
+    transform: translateX(8rem);
+  }
+
+
+  /* -*-*-*-*-*-*-*-*-*-*- ARTICLE TWO -*-*-*-*-*-*-*-*-*-*- */
+  .articleTwo {
+    padding: 8rem 0;
+  }
+  .containerArticle2 .how {
+    flex-direction: row;
+  }
+  /* -*-*-*-*-*-*-*-*-*-*- CARDS CONTAINER -*-*-*-*-*-*-*-*-*-*- */
+  /* .cardsContainer {
+    display: grid;
+    gap: 2.4rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr));
+  } */
+
+}
