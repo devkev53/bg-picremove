@@ -49,6 +49,11 @@ const index = () => {
     }
   },[tries])
 
+  const handleImageProcess = () => {
+    setProcessImg(true)
+    setImageStatus(image_status_types.DOWNLOAD)
+  }
+
 
   useEffect(()=>{
     if (processImg) {
@@ -68,7 +73,7 @@ const index = () => {
             <img src={previewImage} alt="" className="styles preview" />
             <img
               onLoad={handleLoadOk}
-              onError={() => setProcessImg(true)}
+              onError={() => handleImageProcess()}
               src={`${modifiedImage}t=${tries}`} alt="" className={styles.processImage} />
           </>)
           :(<>
@@ -81,7 +86,7 @@ const index = () => {
               <img src={previewImage} alt="" className="styles preview" />
               <img
                 onLoad={handleLoadOk}
-                onError={() => setProcessImg(true)}
+                onError={() => handleImageProcess()}
                 src={`${modifiedImage}t=${tries}`} alt="" className="styles processImage" />
             </two-up>
           </>)

@@ -16,14 +16,14 @@ const index = () => {
   const downloadImg = () => {
     saveAs(modifiedImage, 'image.png')
   }
-  
+
   return (
     <SnackbarProvider>
     <SnackbarUtilitiesConfigurator />
     <div className={styles.uploadContainer}>
       <main className={styles.mainContainer}>
         <article className={styles.articleContainer}>
-          { imageStatus === 2 || imageStatus === 3 
+          { imageStatus === 2 || imageStatus === 3
             ? (<>
               <StepEdit />
               <div className={styles.rightSide}>
