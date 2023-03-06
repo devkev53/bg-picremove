@@ -8,10 +8,10 @@ import './reset.css'
 import './main.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <ImageContexProvider>
       <App />
     </ImageContexProvider>
-  // </React.StrictMode>,
+  </React.StrictMode>,
 )
 

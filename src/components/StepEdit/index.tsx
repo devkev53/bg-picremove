@@ -40,7 +40,7 @@ const index = () => {
   },[])
 
   useEffect (() => {
-    if (tries > 50) {
+    if (tries > 200) {
       SnackbarUtilities.error('Sorry, An internal error occurred..!')
       handleResetImage()
       setTimeout(() => {
