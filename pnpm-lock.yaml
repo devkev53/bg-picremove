@@ -14,6 +14,7 @@ specifiers:
   autoprefixer: ^10.4.13
   axios: ^1.3.4
   dropzone: 6.0.0-beta.2
+  file-saver: ^2.0.5
   notistack: ^2.0.8
   postcss: ^8.4.21
   react: ^18.2.0
@@ -35,6 +36,7 @@ dependencies:
   animate.css: 4.1.1
   axios: 1.3.4
   dropzone: 6.0.0-beta.2
+  file-saver: 2.0.5
   notistack: 2.0.8_xi2qqm4afs7e77tnkkiyk5lfne
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1269,6 +1271,10 @@ packages:
     dependencies:
       reusify: 1.0.4
     dev: true
+
+  /file-saver/2.0.5:
+    resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
+    dev: false
 
   /file-selector/0.6.0:
     resolution: {integrity: sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==}

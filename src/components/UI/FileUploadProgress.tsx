@@ -10,6 +10,7 @@ import { uploadImageService } from "../../services/upload-image.service";
 
 import styles from './fileUpload.module.css'
 import { preview } from "@cloudinary/url-gen/actions/videoEdit";
+import Spiner from '../../components/UI/Spiner'
 import { addEeffect } from "../../utilities/effects-cloudinary";
 import { MyFileI } from "../../models/image-status.model";
 
@@ -44,6 +45,7 @@ const FileUploadProgress = ({file}: FileUploadWithProgressI) => {
 
       // Add the efects to image
       const imageEffect = addEeffect(public_id)
+      console.log(imageEffect)
       setmodifiedImage(imageEffect)
       setTimeout(() => {
         setImageStatus(image_status_types.DONE)
@@ -63,7 +65,8 @@ const FileUploadProgress = ({file}: FileUploadWithProgressI) => {
         <picture className={styles.uploading}>
           {progress !== 100
             ? (
-              <ProgressBar progress={progress} />
+              // <ProgressBar progress={progress} />
+              <Spiner label='Uploading Image..!' />
             )
             : (
               <div className={styles.endProgress}>

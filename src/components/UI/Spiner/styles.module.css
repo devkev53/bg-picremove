@@ -1,0 +1,61 @@
+.spinerContainer {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+  background: rgba(255,255,255,.4);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  z-index: 1;
+}
+.spinerContainer p {
+  font-weight: bold;
+}
+.spiner {
+  gap: 0.625em;
+  display: flex;
+  justify-content: center;
+}
+.spiner span {
+  border-radius: 50%;
+  height: 1.5em;
+  width: 1.5em;
+}
+.spiner span::before {
+  content: "";
+  display: block;
+  border-radius: inherit;
+  height: inherit;
+  width: inherit;
+  background-color: inherit;
+  animation: ripple 1.8s ease-out infinite;
+  animation-delay: inherit;
+  z-index: -1;
+}
+.spiner span:nth-child(1) {
+  background-color: rgba(var(--green-color));
+}
+.spiner span:nth-child(2) {
+  background-color: rgba(var(--purple-color));
+  animation-delay: 0.2s;
+}
+.spiner span:nth-child(3) {
+  background-color: rgba(var(--pink-color));
+  animation-delay: 0.4s;
+}
+
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(3);
+  }
+}

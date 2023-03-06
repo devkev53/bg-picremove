@@ -19,13 +19,15 @@
   display: grid;
   width: 100%;
   max-width: 100rem;
-  gap: 2.2rem;
+  gap: 4.8rem;
   margin:  0 auto;
 }
-.articleContainer div {
+.articleContainer .rightSide {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2.2rem;
+  justify-content: flex-start;
   order: 1;
 }
 
@@ -36,6 +38,26 @@
   /* color: rgba(var(--purple-color)); */
   margin: 0 auto;
 }
+
+.downloadBtn {
+  padding: 1.8rem;
+  /* background: rgba(var(--pink-color)); */
+  border-radius: 4rem;
+  font-weight: bold;
+  transition: all ease .3s;
+  background: transparent;
+  border: .2rem solid rgba(var(--soft-green-color));
+}
+.downloadBtn svg {
+  margin-right: .8rem;
+  font-size: var(--text-xl);
+}
+
+.downloadBtn:hover {
+  background: rgba(var(--pink-color));
+  border: .2rem solid rgba(var(--pink-color));
+}
+
 
 @media (min-width: 768px) {
   .uploadContainer {

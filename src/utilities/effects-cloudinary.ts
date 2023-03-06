@@ -13,10 +13,7 @@ export const cloudinary = new Cloudinary({
 export const addEeffect = (public_id:string) => {
   const imageWithoutBackground = cloudinary
     .image(public_id)
-    .effect(cartoonify())
-    // .effect(backgroundRemoval())
-
+    .effect(backgroundRemoval())
+  
   return imageWithoutBackground.toURL()
 }
-
-// export const resizeImg = public 

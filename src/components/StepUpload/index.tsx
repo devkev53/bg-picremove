@@ -23,7 +23,7 @@ const index = () => {
     }))
     rejectFiles.map(({file, errors}) => {
       errors.map(({code, message}) => {
-        console.error(code, message)
+        // console.error(code, message)
         SnackbarUtilities.error(message)
       })
     })
@@ -74,7 +74,7 @@ const index = () => {
         ? files.map(({file}) => (
           <FileUploadProgress key={file.path} file={file} />
         ))
-        : (<div>
+        : (<div className={styles.uploadDiv}>
           {/* <button className="font-bold pointer-events-none bg-blue-600 rounded-full text-white text-xl px-8 py-3"> */}
           <button className={styles.uploadButton}>
             <DriveFolderUploadIcon fontSize="large" className='mr-2' />
