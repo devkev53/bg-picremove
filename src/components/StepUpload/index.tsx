@@ -76,7 +76,7 @@ const index = () => {
         ))
         : (<div className={styles.uploadDiv}>
           {/* <button className="font-bold pointer-events-none bg-blue-600 rounded-full text-white text-xl px-8 py-3"> */}
-          <button className={styles.uploadButton}>
+          <button className={styles.uploadButton} type="button">
             <DriveFolderUploadIcon fontSize="large" className='mr-2' />
             Upload Image
           </button>
