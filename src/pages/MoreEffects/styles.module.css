@@ -1,0 +1,22 @@
+.moreEffectsContainer{
+  width: 100%;
+  min-height: calc(100vh - 21.4rem);
+  padding: 4rem 0;
+}
+.mainContainer {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.titleContainer h3 {
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-xxl));
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+}

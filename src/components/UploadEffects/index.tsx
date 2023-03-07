@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import {useDropzone, FileRejection, FileError} from 'react-dropzone'
-import FileUploadProgress from '../UI/FileUploadProgress';
 import { SnackbarUtilities } from '../../utilities/snackbar-manager';
 import { MyFileI } from '../../models/image-status.model';
-import { baseStyle, focusStyle } from './styles';
-import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
+import { baseStyle, focusStyle } from '../StepUpload/styles';
+import UploadProgress from '../UploadProgress'
 
 import styles from './styles.module.css'
 
@@ -60,28 +59,21 @@ const index = () => {
     isDragReject,
     isDragActive
   ])
-
-
+  
   return (
     <form
-      {...getRootProps({style})}
-      action="https://res.cloudinary.com/v1_1/dn83qw1rq/image/upload"
-      className={
-        `${styles.formContainer}`
-      }
+      {...getRootProps({style})} 
+      action="" className={styles.formContainer}
     >
-      {files.length > 0
+      {files.length > 0 
         ? files.map(({file}) => (
-          <FileUploadProgress key={file.path} file={file} />
+          <UploadProgress key={file.path} file={file} />
         ))
-        : (<div className={styles.uploadDiv}>
-          {/* <button className="font-bold pointer-events-none bg-blue-600 rounded-full text-white text-xl px-8 py-3"> */}
-          <button className={styles.uploadButton} type="button">
-            <DriveFolderUploadIcon fontSize="large" className='mr-2' />
-            Upload Image
-          </button>
-          <strong className={styles.small}>or drop a file</strong>
-        </div>)
+        :(<>
+          <div>
+
+          </div>
+        </>)
       }
     </form>
   );

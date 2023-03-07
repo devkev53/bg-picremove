@@ -12,6 +12,9 @@ const index = () => {
   const handleOpenMenu = () =>{
     setOpenMenu(!openMenu)
   }
+  const handleCloseMenu = () => {
+    setOpenMenu(false)
+  }
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
@@ -27,7 +30,7 @@ const index = () => {
           </a>
         </Link>
         <nav className={`${openMenu && styles.open}`} >
-          <Menu />
+          <Menu closeMenu={handleCloseMenu} />
         </nav>
         <button onClick={handleOpenMenu} className={`${openMenu && styles.closeButton} ${styles.burguerIcon}`}>
           <span className={styles.span1}></span>
