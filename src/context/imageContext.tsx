@@ -1,5 +1,6 @@
 import { createContext, ReactElement, ReactNode, useState } from "react"
 import { image_status_types } from "../models/image-status.model"
+import { imageStore } from "../store/imageStore"
 
 export const ImageContext = createContext({})
 
@@ -19,4 +20,32 @@ export const ImageContexProvider = ({children}:{children:ReactNode}):ReactElemen
       {children}
     </ImageContext.Provider>
   )
+}
+
+export const useImageStore = () => {
+  const {
+    imageStatus,
+    setImageStatus,
+    imagePublicId,
+    setImagePublicId,
+    originalImage,
+    setOriginalImage,
+    previewImage,
+    setPreviewImage,
+    modifiedImage,
+    setModifiedImage,
+  } = imageStore(state=>state)
+
+  return {
+    imageStatus,
+    setImageStatus,
+    imagePublicId,
+    setImagePublicId,
+    originalImage,
+    setOriginalImage,
+    previewImage,
+    setPreviewImage,
+    modifiedImage,
+    setModifiedImage,
+  }
 }

@@ -11,16 +11,17 @@ import { uploadImageService } from "../../services/upload-image.service";
 import styles from './fileUpload.module.css'
 import { preview } from "@cloudinary/url-gen/actions/videoEdit";
 import Spiner from '../../components/UI/Spiner'
-import { addEeffect } from "../../utilities/effects-cloudinary";
+import { addEeffect, removeBg } from "../../utilities/effects-cloudinary";
 import { MyFileI } from "../../models/image-status.model";
+import { useImageStore } from "../../context/imageContext";
 
 export interface FileUploadWithProgressI {
-  file: MyFileI
+  file: MyFileI,
+  isRemove: Boolean
 }
-const FileUploadProgress = ({file}: FileUploadWithProgressI) => {
+const FileUploadProgress = ({file, isRemove}: FileUploadWithProgressI) => {
   const [progress, setProgress] = useState(0)
   const [isloaded, setIsLoaded] = useState(false)
-  const {setPreviewImage} = useImageContext()
 
   const cloudinary = new Cloudinary({
     cloud: {
@@ -31,25 +32,37 @@ const FileUploadProgress = ({file}: FileUploadWithProgressI) => {
     }
   })
 
-  const {imageStatus, originalImage, setImageStatus, setOriginalImage, setmodifiedImage} = useImageContext()
+
+  const {
+    imageStatus,
+    originalImage,
+    setImageStatus,
+    setOriginalImage,
+    setModifiedImage,
+    setPreviewImage,
+    imagePublicId,
+    setImagePublicId
+  } = useImageStore()
 
   const upload = async () => {
     const resp = await uploadImageService(file, setProgress)
     const {data} = resp
     const {secure_url} = data
     const {public_id} = data
+
+    // Setting Public ID image to Cloudinary
+    setImagePublicId(public_id)
     if (secure_url && public_id) {
       setProgress(100)
       setIsLoaded(true)
       setOriginalImage(secure_url)
 
-      // Add the efects to image
-      const imageEffect = addEeffect(public_id)
-      console.log(imageEffect)
-      setmodifiedImage(imageEffect)
-      setTimeout(() => {
+      console.log(`Is Remove?: ${isRemove}`)
+      if (isRemove) {
+        const imageWithRemoveBg = removeBg(public_id)
+      } else {
         setImageStatus(image_status_types.DONE)
-      }, 1000);
+      }
     }
   }
 
@@ -81,17 +94,6 @@ const FileUploadProgress = ({file}: FileUploadWithProgressI) => {
         <img src={originalImage} />
       )}
     </>
-    // <picture className={`${styles.picture} ${isloaded ? '' : styles.loading}}`}>
-    //   <div className={styles.loadInformation}>
-    //     <div className="loading">Loading</div>
-    //     <div className="ok"></div>
-    //   </div>
-    //   <div className={styles.imgInfo}>
-    //     <p><strong>{file.size} </strong>MB</p>
-    //     <p>{file.path}</p>
-    //   </div>
-    //   <img className={`${isloaded ? '' : styles.loading} ${styles.img}`} key='file' src={file.preview} alt={file.path} />
-    // </picture>
   );
 }
 

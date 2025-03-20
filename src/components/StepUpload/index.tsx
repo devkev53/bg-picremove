@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import {useDropzone, FileRejection, FileError} from 'react-dropzone'
 import FileUploadProgress from '../UI/FileUploadProgress';
 import { SnackbarUtilities } from '../../utilities/snackbar-manager';
@@ -13,14 +13,19 @@ export interface UploadbleFile {
   errors: FileError[]
 }
 
-const index = () => {
+const index = ({isRemove}:{isRemove:Boolean}) => {
+
+  // Set files state
   const [files, setFiles] = useState<UploadbleFile[]>([])
 
+  // Get files with Dropzone with onDorp in div
   const onDrop = useCallback((acceptedFiles:File[], rejectFiles:FileRejection[]) => {
+
     // Hacer lo que corresponde con los archivos
     acceptedFiles.map(file => Object.assign(file, {
       preview: URL.createObjectURL(file)
     }))
+
     rejectFiles.map(({file, errors}) => {
       errors.map(({code, message}) => {
         // console.error(code, message)
@@ -65,23 +70,26 @@ const index = () => {
   return (
     <form
       {...getRootProps({style})}
-      action="https://res.cloudinary.com/v1_1/dn83qw1rq/image/upload"
       className={
         `${styles.formContainer}`
       }
     >
       {files.length > 0
         ? files.map(({file}) => (
-          <FileUploadProgress key={file.path} file={file} />
+
+          // Send file to upload in Cloudinary Service
+          <FileUploadProgress key={file.path} file={file} isRemove={isRemove} />
+
         ))
-        : (<div className={styles.uploadDiv}>
-          {/* <button className="font-bold pointer-events-none bg-blue-600 rounded-full text-white text-xl px-8 py-3"> */}
-          <button className={styles.uploadButton} type="button">
-            <DriveFolderUploadIcon fontSize="large" className='mr-2' />
-            Upload Image
-          </button>
-          <strong className={styles.small}>or drop a file</strong>
-        </div>)
+        : (
+          <div className={styles.uploadDiv}>
+            <button className={styles.uploadButton} type="button">
+              <DriveFolderUploadIcon fontSize="large" className='mr-2' />
+              Upload Image
+            </button>
+            <strong className={styles.small}>or drop a file</strong>
+          </div>
+        )
       }
     </form>
   );

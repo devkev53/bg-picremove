@@ -9,9 +9,9 @@ import './main.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
-    <ImageContexProvider>
-      <App />
-    </ImageContexProvider>
+      <ImageContexProvider>
+        <App />
+      </ImageContexProvider>
   // </React.StrictMode>,
 )
 

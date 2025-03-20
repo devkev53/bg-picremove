@@ -37,7 +37,7 @@ const index = () => {
               </div>
             </>)
             : (<>
-              <UploadForm />
+              <UploadForm isRemove={true} />
               <div className={styles.rightSide}>
                 <h3>Remove Background</h3>
               </div>

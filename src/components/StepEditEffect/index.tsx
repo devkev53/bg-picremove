@@ -6,13 +6,13 @@ import { useEffect, useRef, useState } from "react";
 import { SnackbarUtilities } from "../../utilities/snackbar-manager";
 import { image_status_types } from '../../models/image-status.model';
 import CloseIcon from '@mui/icons-material/Close';
-import Spiner from '../../components/UI/Spiner'
+import Spiner from '../UI/Spiner'
 
 
 import styles from './styles.module.css'
 
 const index = () => {
-  // const [location, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
   const [processImg, setProcessImg] = useState(true)
   const [tries, setTries] = useState<number>(0)
   const {
@@ -43,9 +43,6 @@ const index = () => {
     if (tries > 10) {
       SnackbarUtilities.error('Sorry, An internal error occurred..!')
       handleResetImage()
-      // setTimeout(() => {
-      //   setLocation("/")
-      // }, 2000);
     }
   },[tries])
 
@@ -94,6 +91,7 @@ const index = () => {
         }
       </picture>
     </form>
+
   );
 }
 

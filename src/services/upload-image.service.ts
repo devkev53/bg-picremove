@@ -5,7 +5,7 @@ import React from 'react'
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dn83qw1rq/image/upload'
 const CLOUDINARY_KEY = '267945431327545'
 
-export const uploadImageService = (file:File, onProgress:(porcenjate:number) => void) => {
+export const uploadImageService = async (file:File, onProgress:(porcenjate:number) => void) => {
 
   const formData = new FormData()
   formData.append('file', file)
@@ -13,11 +13,11 @@ export const uploadImageService = (file:File, onProgress:(porcenjate:number) => 
   formData.append('timestamp', (Date.now() /1000).toString())
   formData.append('key', CLOUDINARY_KEY)
 
-  const resp = axios.post(CLOUDINARY_URL, formData, {
+  const resp = await axios.post(CLOUDINARY_URL, formData, {
     headers: {
       'Content-Type': 'multipart/form-data'
     },
-    onUploadProgress(e) {
+    onUploadProgress(e:any) {
       const porcenjate = Math.floor((e.loaded * 100) / e.total)
       onProgress(porcenjate)
     }
