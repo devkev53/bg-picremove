@@ -5,12 +5,16 @@ import bgc from '../../assets/bgc.png'
 import bgl from '../../assets/bgl.png'
 
 import styles from './styles.module.css'
+import { useHandleMenu } from '../../hooks/useHandleMenu';
 
 const index = () => {
-  const [openMenu, setOpenMenu] = useState(false)
+  const {isOpen, handleOpenMenu, handleCloseMenu} = useHandleMenu()
 
-  const handleOpenMenu = () =>{
-    setOpenMenu(!openMenu)
+  const handleBurgerBtn = () => {
+    if (isOpen===true) {
+      return handleCloseMenu()
+    }
+    return handleOpenMenu()
   }
   return (
     <header className={styles.headerContainer}>
@@ -26,10 +30,10 @@ const index = () => {
             </h1> */}
           </a>
         </Link>
-        <nav className={`${openMenu && styles.open}`} >
+        <nav className={`${isOpen && styles.open}`} >
           <Menu />
         </nav>
-        <button onClick={handleOpenMenu} className={`${openMenu && styles.closeButton} ${styles.burguerIcon}`}>
+        <button onClick={handleBurgerBtn} className={`${isOpen && styles.closeButton} ${styles.burguerIcon}`}>
           <span className={styles.span1}></span>
           <span className={styles.span2}></span>
           <span className={styles.span3}></span>

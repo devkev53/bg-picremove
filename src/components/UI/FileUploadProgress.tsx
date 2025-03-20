@@ -11,13 +11,14 @@ import { uploadImageService } from "../../services/upload-image.service";
 import styles from './fileUpload.module.css'
 import { preview } from "@cloudinary/url-gen/actions/videoEdit";
 import Spiner from '../../components/UI/Spiner'
-import { addEeffect, removeBg } from "../../utilities/effects-cloudinary";
+import { addEeffect, addImageEffects, removeBg } from "../../utilities/effects-cloudinary";
 import { MyFileI } from "../../models/image-status.model";
-import { useImageStore } from "../../context/imageContext";
+import { useHandleImage } from "../../hooks/useHandleImage";
+import { useHandleEffects } from "../../hooks/useHandleEffects";
 
 export interface FileUploadWithProgressI {
   file: MyFileI,
-  isRemove: Boolean
+  isRemove?: Boolean
 }
 const FileUploadProgress = ({file, isRemove}: FileUploadWithProgressI) => {
   const [progress, setProgress] = useState(0)
@@ -42,7 +43,8 @@ const FileUploadProgress = ({file, isRemove}: FileUploadWithProgressI) => {
     setPreviewImage,
     imagePublicId,
     setImagePublicId
-  } = useImageStore()
+  } = useHandleImage()
+  const {effectList} = useHandleEffects()
 
   const upload = async () => {
     const resp = await uploadImageService(file, setProgress)
@@ -57,11 +59,16 @@ const FileUploadProgress = ({file, isRemove}: FileUploadWithProgressI) => {
       setIsLoaded(true)
       setOriginalImage(secure_url)
 
+      // Add Effects or Remove Background
       console.log(`Is Remove?: ${isRemove}`)
       if (isRemove) {
         const imageWithRemoveBg = removeBg(public_id)
-      } else {
         setImageStatus(image_status_types.DONE)
+        setModifiedImage(imageWithRemoveBg)
+      } else {
+        const imageWithEffects = addImageEffects(public_id, effectList)
+        setImageStatus(image_status_types.DONE)
+        setModifiedImage(imageWithEffects)
       }
     }
   }

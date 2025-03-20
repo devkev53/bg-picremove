@@ -22,30 +22,3 @@ export const ImageContexProvider = ({children}:{children:ReactNode}):ReactElemen
   )
 }
 
-export const useImageStore = () => {
-  const {
-    imageStatus,
-    setImageStatus,
-    imagePublicId,
-    setImagePublicId,
-    originalImage,
-    setOriginalImage,
-    previewImage,
-    setPreviewImage,
-    modifiedImage,
-    setModifiedImage,
-  } = imageStore(state=>state)
-
-  return {
-    imageStatus,
-    setImageStatus,
-    imagePublicId,
-    setImagePublicId,
-    originalImage,
-    setOriginalImage,
-    previewImage,
-    setPreviewImage,
-    modifiedImage,
-    setModifiedImage,
-  }
-}

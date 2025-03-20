@@ -1,5 +1,5 @@
 import { Cloudinary } from "@cloudinary/url-gen"
-import { cartoonify, pixelate, sepia, grayscale } from "@cloudinary/url-gen/actions/effect";
+import { cartoonify, pixelate, sepia, grayscale, removeBackground } from "@cloudinary/url-gen/actions/effect";
 import { byAngle } from "@cloudinary/url-gen/actions/rotate";
 import { image } from "@cloudinary/url-gen/qualifiers/source";
 
@@ -28,8 +28,10 @@ export const addImageEffects = (publicId:string, effectList:Array<String>) => {
     }
     return image.toURL()
 }
-export const removeBg = async (publicId:string) => {
-  console.log(`Public ID with Cloudinary: ${publicId}`)
+export const removeBg = (publicId:string) => {
+  const image = cloudinary.image(publicId)
+  image.effect(removeBackground())
+  return image.toURL()
 }
 
 // export const addEeffect = async (public_id:string) => {
