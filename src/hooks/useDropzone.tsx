@@ -1,7 +1,9 @@
 import { useState } from "react"
 import styles from '../components/Dropzone/styles.module.css'
+import { SnackbarUtilities } from "../utilities/snackbar-manager";
 
 export const useCustomDropzone = (inputRef?:React.RefObject<HTMLInputElement>) => {
+  let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.tiff|\.tif)$/i;
   const [image, setImage] = useState<File|null>(null)
 
   const handleDragOver:React.DragEventHandler<HTMLDivElement> = (e) => {
@@ -10,6 +12,11 @@ export const useCustomDropzone = (inputRef?:React.RefObject<HTMLInputElement>) =
   }
   const handleDrop:React.DragEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault()
+    const file = e.dataTransfer.files[0]
+    if (!allowedExtensions.exec(e.dataTransfer.files[0].name)){
+      SnackbarUtilities.error("This format is no valid! Please change Image")
+      return null
+    }
     setImage(e.dataTransfer.files[0])
   }
   const handleDragLeave:React.DragEventHandler<HTMLDivElement> = (e) => {

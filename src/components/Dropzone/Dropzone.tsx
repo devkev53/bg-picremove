@@ -7,7 +7,7 @@ import { useHandleImage } from '../../hooks/useHandleImage';
 import { image_status_types } from '../../models/image-status.model';
 
 import styles from './styles.module.css'
-import { useHandleCloudinary } from '../../hooks/useHandleCloudinary';
+import { SnackbarUtilities } from '../../utilities/snackbar-manager';
 
 export const Dropzone = () => {
   const imgPreview = useRef<HTMLImageElement>(null)
@@ -21,23 +21,25 @@ export const Dropzone = () => {
     handleDrop,
     handleDropzoneClick
   } = useCustomDropzone(imgInput)
-  const {setImageStatus,imageStatus} = useHandleImage()
-  const {handleUpload} = useHandleCloudinary()
+  const {setUseImage, setImageStatus,imageStatus} = useHandleImage()
 
   const handleInputChange:ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.files && e.target.files[0]) {
       setImage(e.target.files[0])
+      setUseImage(e.target.files[0])
       const reader = new FileReader()
       reader.onload = (e) => {
         imgPreview.current?.setAttribute('src', `${e.target?.result}`)
       }
       reader.readAsDataURL(e.target.files[0])
+      setImageStatus(image_status_types.READY)
     }
   }
 
   const showPreview = () => {
     const dataTransfer = new DataTransfer()
     if (image && imgInput) {
+      setUseImage(image)
       dataTransfer.items.add(image)
       imgInput.current.files = dataTransfer.files
       const reader = new FileReader()
@@ -45,20 +47,19 @@ export const Dropzone = () => {
         imgPreview.current?.setAttribute('src', `${e.target?.result}`)
       }
       reader.readAsDataURL(imgInput.current.files[0])
+      setImageStatus(image_status_types.UPLOADING)
     }
   }
 
   useEffect(() => {
     console.log("Image in Dropzone")
     showPreview()
-    setImageStatus(image_status_types.READY)
+    if (image!==null) {
+      SnackbarUtilities.info("Start uploading the image to Cloudinary!")
+      setImageStatus(image_status_types.UPLOADING)
+    }
   },[image])
 
-  useEffect(() => {
-    if (imageStatus===image_status_types.READY && image!==null) {
-      handleUpload(image)
-    }
-  },[imageStatus])
 
   return (
     <div

@@ -1,4 +1,5 @@
 export const image_status_types = {
+  'EXPECTING':-2,
   'READY': 0,
   'UPLOADING': 1,
   'DONE': 2,

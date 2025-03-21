@@ -2,6 +2,7 @@ import { Cloudinary } from "@cloudinary/url-gen"
 import { cartoonify, pixelate, sepia, grayscale, removeBackground } from "@cloudinary/url-gen/actions/effect";
 import { byAngle } from "@cloudinary/url-gen/actions/rotate";
 import { image } from "@cloudinary/url-gen/qualifiers/source";
+import { EffectI } from "../store/effectStore";
 
 export const cloudinary = new Cloudinary({
   cloud: {
@@ -12,18 +13,22 @@ export const cloudinary = new Cloudinary({
   }
 })
 
-export const addImageEffects = (publicId:string, effectList:Array<String>) => {
+export const addImageEffects = (publicId:string, effectList:Array<EffectI>) => {
     const image = cloudinary.image(publicId)
-    if (effectList.includes("cartoon")) {
+    const cartoon = effectList.find(item => item.name==="cartoonify")
+    const pixel = effectList.find(item => item.name==="pixelate")
+    const gray = effectList.find(item => item.name==="grayscale")
+    const sep = effectList.find(item => item.name==="sepia")
+    if (cartoon?.apply) {
       image.effect(cartoonify())
     }
-    if (effectList.includes("pixel")) {
+    if (pixel?.apply) {
       image.effect(pixelate())
     }
-    if (effectList.includes("sepia")) {
+    if (sep?.apply) {
       image.effect(sepia())
     }
-    if (effectList.includes("gray")) {
+    if (gray?.apply) {
       image.effect(grayscale())
     }
     return image.toURL()

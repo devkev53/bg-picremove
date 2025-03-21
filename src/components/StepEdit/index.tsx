@@ -83,7 +83,7 @@ const index = () => {
               className={styles.newImgButton}>
                 <CloseIcon fontSize='large'/>
             </button>
-            <two-up>
+            <two-up className={styles.twoUp}>
               <img src={previewImage} alt="" className="styles preview" />
               <img
                 onLoad={handleLoadOk}

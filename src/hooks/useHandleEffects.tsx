@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { EffectI, effectStore } from "../store/effectStore"
 
 export const useHandleEffects = () => {
   // const [effectsList, setEffectsList] = useState<Array<string>>([""])
@@ -7,36 +8,38 @@ export const useHandleEffects = () => {
   const [sepia, setSepia] = useState('')
   const [pixel, setPixel] = useState('')
 
-  let effectList:String[] = []
+  const {effects:effectList, setEffects} = effectStore(state=>state)
+
+  const handleChangeEffect = (name:string) => {
+    let cartoonify:EffectI = effectList.find((item)=> item.name===name ) || {name:name, apply:false}
+    let extractEffects = effectList.filter((item)=> item.name!==name )
+    if(cartoonify?.apply===true) {
+      console.log("Apply False")
+      cartoonify.apply = false
+    }else {
+      console.log("Apply True")
+      cartoonify.apply = true
+    }
+    setEffects([
+      ...extractEffects,
+      cartoonify
+    ])
+  }
 
   const handleGray = () => {
-    if (gray.length > 0) {
-      setGray('')
-      effectList = effectList.filter((item) => item!=='gray')
-    } else {
-      effectList.push('gray')
-      setGray('gray')
-    }
+    handleChangeEffect("grayscale")   
   }
 
   const handlePixelate = () => {
-    if (gray.length > 0) {
-      setPixel('')
-      effectList = effectList.filter((item) => item!=='pixel')
-    } else {
-      effectList.push('pixel')
-      setPixel('pixel')
-    }
+    handleChangeEffect("pixelate")   
   }
 
   const handleCartoonify = () => {
-    if (gray.length > 0) {
-      setCartoon('')
-      effectList = effectList.filter((item) => item!=='cartoon')
-    } else {
-      effectList.push('cartoon')
-      setCartoon('cartoon')
-    }
+    handleChangeEffect("cartoonify")   
+  }
+
+  const handleSepia = () => {
+    handleChangeEffect("sepia")   
   }
 
   return {
@@ -44,5 +47,6 @@ export const useHandleEffects = () => {
     handleGray,
     handlePixelate,
     handleCartoonify,
+    handleSepia
   }
 }
