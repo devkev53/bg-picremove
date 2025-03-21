@@ -5,6 +5,8 @@ import styles from './styles.module.css'
 import { addImageEffects } from '../../utilities/effects-cloudinary'
 
 export const EeffectsApplicator = () => {
+  const [proccess, setProccess] = useState(true)
+
   const {
     originalImage, imagePublicId,
     modifiedImage, setModifiedImage,
@@ -12,7 +14,7 @@ export const EeffectsApplicator = () => {
   } = useHandleImage()
   const {effectList} = useHandleEffects()
 
-  const handleAplyEffects = () => {
+  const handleApplyEffects = () => {
     if (imagePublicId!== null) {
       const imageWithEffects = addImageEffects(imagePublicId, effectList)
       setModifiedImage(imageWithEffects)
@@ -20,7 +22,7 @@ export const EeffectsApplicator = () => {
   }
 
   useEffect(() => {
-    handleAplyEffects()
+    handleApplyEffects()
     console.log(modifiedImage)
   }, [effectList])
 
@@ -36,7 +38,10 @@ export const EeffectsApplicator = () => {
           </picture>
           {/* Image With Effects by Cloudinary */}
           <picture>
-            <img src={modifiedImage} alt="Image With Effects" />
+            <img
+              src={modifiedImage}
+              alt="Image With Effects"
+            />
           </picture>
         </two-up>
     </div>

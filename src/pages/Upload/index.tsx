@@ -20,19 +20,11 @@ import BackspaceIcon from '@mui/icons-material/Backspace';
 
 
 const index = () => {
-   const {imageStatus, modifiedImage,} = useHandleImage()
-  
-    const downloadImg = () => {
-      saveAs(modifiedImage, 'image.png')
-    }
-  
-    useEffect(()=>{
-      console.log(imageStatus)
-    },[imageStatus])
-  
-    useEffect(() => {
-      
-    },[imageStatus])
+  const {imageStatus, modifiedImage,} = useHandleImage()
+
+  const downloadImg = () => {
+    saveAs(modifiedImage, 'image.png')
+  }
 
   return (
     <SnackbarProvider>

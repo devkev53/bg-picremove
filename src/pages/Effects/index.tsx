@@ -23,14 +23,6 @@ const index = () => {
     saveAs(modifiedImage, 'image.png')
   }
 
-  useEffect(()=>{
-    console.log(imageStatus)
-  },[imageStatus])
-
-  useEffect(() => {
-    
-  },[imageStatus])
-  
   return (
     <SnackbarProvider>
     <SnackbarUtilitiesConfigurator />
@@ -59,7 +51,7 @@ const index = () => {
             <button onClick={handleClearImage}><span>Delete Imagen and modify other..!</span><i><BackspaceIcon/></i></button>
           </div>
         </article>
-        
+
       </main>
     </div>
     </SnackbarProvider>
