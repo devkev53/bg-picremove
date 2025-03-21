@@ -11,6 +11,10 @@
   justify-content: center;
   overflow: hidden;
   transition: .3s all ease;
+  background-image: url("../../assets/transparent.webp");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .uploadDiv input {
   /* display: none; */

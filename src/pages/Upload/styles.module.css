@@ -56,6 +56,36 @@
   border: .2rem solid rgba(var(--pink-color));
 }
 
+.wrapper {
+  display: grid;
+  gap: 2rem;
+}
+
+.resetBtn {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: .6rem;
+  border: .2rem solid rgba(var(--purple-color));
+  border-radius: 1.8rem;
+  padding: .8rem 2rem;
+  font-weight: bold;
+  transition: .3s all ease;
+}
+.resetBtn i svg {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: rgba(var(--soft-green-color));
+}
+.resetBtn:hover {
+  background: rgba(var(--purple-color));
+}
+.resetBtn:hover i svg {
+  color: rgba(var(--font-color));
+}
+
 
 @media (min-width: 768px) {
   .uploadContainer {

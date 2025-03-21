@@ -36,7 +36,7 @@ const index = () => {
             </picture>
             <div className="">
               <p>Kevin Alberto Palma Ralda</p>
-              <small>KevCode53</small>
+              <small>devkev53</small>
               <a href="https://github.com/KevCode53" target="_blank">
                 <GitHubIcon fontSize='large' />
                 <span>

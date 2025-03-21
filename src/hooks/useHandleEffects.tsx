@@ -27,19 +27,22 @@ export const useHandleEffects = () => {
   }
 
   const handleGray = () => {
-    handleChangeEffect("grayscale")   
+    handleChangeEffect("grayscale")
   }
 
   const handlePixelate = () => {
-    handleChangeEffect("pixelate")   
+    handleChangeEffect("pixelate")
   }
 
   const handleCartoonify = () => {
-    handleChangeEffect("cartoonify")   
+    handleChangeEffect("cartoonify")
   }
 
   const handleSepia = () => {
-    handleChangeEffect("sepia")   
+    handleChangeEffect("sepia")
+  }
+  const handleRemove = () => {
+    handleChangeEffect("remove")
   }
 
   return {
@@ -47,6 +50,7 @@ export const useHandleEffects = () => {
     handleGray,
     handlePixelate,
     handleCartoonify,
-    handleSepia
+    handleSepia,
+    handleRemove
   }
 }

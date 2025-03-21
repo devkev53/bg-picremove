@@ -44,11 +44,16 @@ const index = () => {
               </>
             )}
           </div>
-          <div className="styles wrapper">
+          <div className={styles.wrapper}>
             {imageStatus===image_status_types.EXPECTING && (<Dropzone/>)}
             {imageStatus===image_status_types.UPLOADING && (<UploadingStep/>)}
             {imageStatus===image_status_types.READY && (<EeffectsApplicator/>)}
-            <button onClick={handleClearImage}><span>Delete Imagen and modify other..!</span><i><BackspaceIcon/></i></button>
+            {imageStatus !== image_status_types.EXPECTING && (
+              <button className={styles.resetBtn} onClick={handleClearImage}>
+                <span>Delete Imagen and modify other..!</span>
+                <i><BackspaceIcon/></i>
+              </button>
+            )}
           </div>
         </article>
 
